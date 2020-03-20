@@ -274,7 +274,7 @@ localhost:1080
 
 4. Now you have an encrypted, authenticated SOCKS5 connection over HTTP
 
-### Use case
+### Examples
 
 #### How expose local website to internet
 
