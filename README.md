@@ -280,19 +280,19 @@ localhost:1080
 
 Server:
 
-```
+```bash
 chisel server --port 83 -reverse
 ```
 
 Client:
 
-```
-chisel client http://185.52.2.166 83  R:85:localhost:8000
+```bash
+chisel client http://185.52.2.166:83  R:85:localhost:8000
 ```
 
 Launch web server on client
 
-```
+```bash
 ➜  ~ python -m SimpleHTTPServer 8000
 Serving HTTP on 0.0.0.0 port 8000 ...
 127.0.0.1 - - [20/Mar/2020 10:53:41] "GET / HTTP/1.1" 200 -
