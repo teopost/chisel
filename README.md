@@ -274,6 +274,34 @@ localhost:1080
 
 4. Now you have an encrypted, authenticated SOCKS5 connection over HTTP
 
+### Use case
+
+#### How expose local website to internet
+
+Server:
+
+```
+chisel server --port 83 -reverse
+```
+
+Client:
+
+```
+chisel client http://185.52.2.166 83  R:85:localhost:8000
+```
+
+Launch web server on client
+
+```
+➜  ~ python -m SimpleHTTPServer 8000
+Serving HTTP on 0.0.0.0 port 8000 ...
+127.0.0.1 - - [20/Mar/2020 10:53:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Mar/2020 10:53:41] code 404, message File not found
+```
+
+And now navigate on: http://185.52.2.166:85/
+
+
 ### Performance
 
 With [crowbar](https://github.com/q3k/crowbar), a connection is tunneled by repeatedly querying the server with updates. This results in a large amount of HTTP and TCP connection overhead. Chisel overcomes this using WebSockets combined with [crypto/ssh](https://golang.org/x/crypto/ssh) to create hundreds of logical connections, resulting in **one** TCP connection per client.
